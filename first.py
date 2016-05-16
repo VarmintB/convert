@@ -43,38 +43,40 @@ while True:
 		if (from_base, to_base) == (10, 2):
 			print(k + (bin(int(num.split('.')[0])) + '.' + convert(int(num.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (10, 8):
-			print(k + oct(int(num.split('.')[0])) + '.' + convert(int(num.split('.')[1]), to_base))
+			print(k + (oct(int(num.split('.')[0])) + '.' + convert(int(num.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (10, 16):
 			print(k + (hex(int(num.split('.')[0])) + '.' + convert(int(num.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (2, 10):
 			print(k + str((int('0b' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base)))
 		elif (from_base, to_base) == (2, 8):
 			temp = str((int('0b' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
-			print(k + (oct(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[1:])
+			print(k + (oct(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (2, 16):
 			temp = str((int('0b' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
 			print(k + (hex(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (8, 2):
-			temp = str((int('0' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
+			temp = str((int('0o' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
 			print(k + (bin(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (8, 10):
-			print(k + str((int('0' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base)))
+			print(k + str((int('0o' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base)))
 		elif (from_base, to_base) == (8, 16):
-			temp = str((int('0' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
+			temp = str((int('0o' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
 			print(k + (hex(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (16, 2):
 			temp = str((int('0x' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
 			print(k + (bin(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (16, 8):
 			temp = str((int('0x' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base))
-			print(k + (oct(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[1:])
+			print(k + (oct(int(temp.split('.')[0])) + '.' + convert(int(temp.split('.')[1]), to_base))[2:])
 		elif (from_base, to_base) == (16, 10):
 			print(k + str((int('0x' + num.split('.')[0], from_base)) + convertback(num.split('.')[1], from_base)))
+		else:
+			raise TypeError('base number {[0]} is not valid'.format(list({from_base, to_base}.difference({2,8,10,16}))))
 	else:
 		if (from_base, to_base) == (10, 2):
 			print(k + bin(int(num))[2:])
 		elif (from_base, to_base) == (10, 8):
-			print(k + oct(int(num))[1:])
+			print(k + oct(int(num))[2:])
 		elif (from_base, to_base) == (10, 16):
 			print(k + hex(int(num))[2:])
 		elif (from_base, to_base) == (2, 10):
@@ -84,14 +86,19 @@ while True:
 		elif (from_base, to_base) == (2, 16):
 			print(k + (hex(int('0b' + num, 10)))[2:])
 		elif (from_base, to_base) == (8, 2):
-			print(k + (bin(int('0' + num, from_base)))[2:])
+			print(k + (bin(int('0o' + num, from_base)))[2:])
 		elif (from_base, to_base) == (8, 10):
-			print(int(k + '0' + num, from_base))
+			print(int(k + '0o' + num, from_base))
 		elif (from_base, to_base) == (8, 16):
-			print(k + (hex(int('0' + num, from_base)))[2:])
+			print(k + (hex(int('0o' + num, from_base)))[2:])
 		elif (from_base, to_base) == (16, 10):
 			print(int(k + '0x' + num, from_base))
 		elif (from_base, to_base) == (16, 2):
 			print(k + (bin(int('0x' + num, from_base)))[2:])
 		elif (from_base, to_base) == (16, 8):
 			print(k + (oct(int('0x' + num, from_base)))[2:])
+<<<<<<< 12f2611a4794e42213e0267155638530a6c70ef0
+=======
+		else:
+			raise TypeError('base number {[0]} is not valid'.format(list({from_base, to_base}.difference({2, 8, 10, 16}))))
+>>>>>>> kinda reworked for python 3+
