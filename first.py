@@ -97,8 +97,16 @@ while True:
 			print(k + (bin(int('0x' + num, from_base)))[2:])
 		elif (from_base, to_base) == (16, 8):
 			print(k + (oct(int('0x' + num, from_base)))[2:])
+<<<<<<< HEAD
 <<<<<<< 12f2611a4794e42213e0267155638530a6c70ef0
 =======
 		else:
 			raise TypeError('base number {[0]} is not valid'.format(list({from_base, to_base}.difference({2, 8, 10, 16}))))
 >>>>>>> kinda reworked for python 3+
+=======
+<<<<<<< HEAD
+		else:
+			raise TypeError('base number {[0]} is not valid'.format(list({from_base, to_base}.difference({2, 8, 10, 16}))))
+=======
+>>>>>>> 12f2611a4794e42213e0267155638530a6c70ef0
+>>>>>>> 0d2505a2b04dd1eff3d8d7cfd0ced9113d8f0bdb
